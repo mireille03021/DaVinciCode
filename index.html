@@ -14,7 +14,7 @@
 <body class="bg-dark">
     <div class="container text-center col-6 py-4 text-white mt-5">
         <h1 class="m-0 py-auto">終極密碼</h1>
-        <h2 class="my-5" id="gameRange">0~99</h2>
+        <h2 class="my-5" id="gameRange">0~100</h2>
         <h3>
             <input id="input" class="text-center text-white bg-dark border-0" type="text" placeholder="0" readonly />
         </h3>
@@ -46,7 +46,7 @@
         var answer = "";
         var startAgain = false;
         var min = 0;
-        var max = 99;
+        var max = 100;
 
         function startGame() {
             if (startAgain == true && confirm("確定要重來?")) {
