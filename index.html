@@ -33,6 +33,7 @@
             <li class="col-4 mb-3"><button type="button" class="btn btn-outline-light input-pad" value="0">0</button></li>
             <li class="col-4 mb-3"><button type="button" class="btn btn-outline-light" id="check"><i class="fas fa-check"></i></button></li>
         </ul>
+        <span>按下開始(鍵盤S)後即可依照鍵盤0~9輸入數字<br />點擊除了按鈕的隨意處，按下enter為右下角打勾按鈕<br />按下backspace為左下角清除按鈕</span>
     </div>
 
     <!-- Optional JavaScript -->
@@ -109,6 +110,26 @@
 
             for (var i = 0; i < inputButtons.length; i++) {
                 inputButtons[i].onclick = inputButton;
+                inputButtons[i].onkeyup = function(event) {
+                    if (event.keyCode == (48 + i)) {
+                        this.onclick;
+                    }
+                }
+            }
+        }
+        var inputButtons = document.getElementsByClassName("input-pad");
+        document.onkeyup = function(event) {
+            if (event.keyCode == 83) {
+                startGame();
+            }
+            if (event.keyCode >= 48 && event.keyCode <= 57 && startAgain == true) { //鍵盤輸入0~9
+                input.value += (event.keyCode - 48);
+            }
+            if (event.keyCode == 13 && startAgain == true) {
+                check();
+            }
+            if (event.keyCode == 8 && startAgain == true) {
+                clear();
             }
         }
         document.getElementById("start").onclick = startGame;
